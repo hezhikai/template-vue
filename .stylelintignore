@@ -1,0 +1,10 @@
+// .stylelintignore
+*.js
+*.png
+*.eot
+*.ttf
+*.woff
+src/assets/font-awesome
+src/assets/iconfont
+dist
+node_modules
