@@ -5,6 +5,14 @@ function resolve(dir) {
 }
 
 module.exports = {
+  devServer: {
+    proxy: {
+      '/xxx': {
+        target: 'xxx'
+      }
+    },
+    port: 8080
+  },
   chainWebpack: (config) => {
     config.resolve.alias.set('@', resolve('src'));
   },

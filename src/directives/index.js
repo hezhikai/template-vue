@@ -2,7 +2,7 @@ const directives = {};
 
 directives.install = function (Vue) {
   Object.keys(directives).forEach((key) => {
-    Vue.directives(key, directives[key]);
+    Vue.directive(key, directives[key]);
   });
 };
 
