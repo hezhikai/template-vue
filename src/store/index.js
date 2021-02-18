@@ -1,11 +1,5 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import { CustomStore } from './utils';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
+export default new CustomStore({
   modules: {}
 });
