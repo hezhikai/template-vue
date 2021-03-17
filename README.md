@@ -19,35 +19,47 @@ npm install
 npm run start
 # 生产环境打包
 npm run build
+
 # 校验代码总体规范
 npm run lint
 # 自动修复 js 和 style 代码规范
 npm run fix
-# 校验 js 代码规范
-npm run lint:js
-# 校验 style 代码规范
-npm run lint:style
-# 校验 html 代码规范
-npm run lint:html
-# 自动修复 js 代码规范问题
-npm run fix:js
-# 自动修复 style 代码规范问题
-npm run fix:style
+    # 校验 js 代码规范
+    npm run lint:js
+    # 校验 style 代码规范
+    npm run lint:style
+    # 校验 html 代码规范
+    npm run lint:html
+    # 自动修复 js 代码规范问题
+    npm run fix:js
+    # 自动修复 style 代码规范问题
+    npm run fix:style
 # 校验代码格式化问题
 npm run prettier
 # 自动修复代码格式化问题
 npm run prettier:fix
+
 # 执行单元测试脚本
 npm run test
 # 执行测试脚本并输出测试覆盖率
 npm run test:coverage
+
 # 按特定模板进行代码提交
 npm run commit
 # 发布项目
-npm run release [-- --release-as major（主版本）|minor（次版本）patch（修订号）|1.1.0（自定义版本号）]
+npm run release [-- --release-as major（主版本）| minor（次版本）| patch（修订号）| 1.1.0（自定义版本号）]
 ```
 
 ## gitHooks
+
+```text
+# 建议使用 commitizen 封装的代码提交工具
+npm run commit
+# 不建议使用 git 默认命令行
+git commit -m 'xxx'
+```
+
+- 通过 `yorkie` 工具在代码提交时触发
 
 ### pre-commit
 
@@ -63,7 +75,7 @@ npm run release [-- --release-as major（主版本）|minor（次版本）p
 <类型>[可选的作用域]: <简短描述>
 [可选的正文（详细描述）]
 [可选的破坏性改动（如参数减少、接口删除、代码迁移等不可逆或无法向下兼容的改动）]
-[可选的问题影响（如修复了某bug、issue等）]
+[可选的问题影响（附上修复的 bug 编号、issue 编号等）]
 ```
 
 ##### 提交类型
@@ -88,3 +100,22 @@ feat(地图编辑页): 增加测量工具功能
 BREAKING CHANGE: 删除了画线的事件
 fix #123
 ```
+
+## 发布和部署
+
+### 发布版本
+
+```text
+# 更新版本号、生成更新日志，并提交代码到本地
+npm run release
+# 推送到远程，并生成对应的 tag
+git push --follow-tags origin branch
+```
+
+- 通过 `standard-version` 工具执行
+- 不带参数时按照 `standard-version` 自身规则更新版本号（不建议）
+- 强烈建议根据实际情况带 `-- --release-as` 参数执行该脚本
+  - major：主版本号（递增第一位）
+  - minor：次版本（递增第二位)
+  - patch：修订号（递增第三位）
+  - 自定义版本号：如 0.1.0（不建议）
