@@ -44,7 +44,7 @@ npm run test:coverage
 # 按特定模板进行代码提交
 npm run commit
 # 发布项目
-npm run release [--release-as 1.1.0(自定义版本号)]
+npm run release [-- --release-as major（主版本）|minor（次版本）patch（修订号）|1.1.0（自定义版本号）]
 ```
 
 ## gitHooks
