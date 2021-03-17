@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "http://10.1.6.154:7000/hzk/template-vue.git"
+    "url": "https://github.com/hezhikai/template-vue.git"
   },
   "scripts": {
     "start": "vue-cli-service serve",
