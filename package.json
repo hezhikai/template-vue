@@ -2,10 +2,15 @@
   "name": "template-vue",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "http://10.1.6.154:7000/hzk/template-vue.git"
+  },
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "fix": "npm run fix:js && npm run fix:style",
     "lint:js": "eslint --ext .js,.vue src",
     "fix:js": "eslint --fix --ext .js,.vue src",
     "lint:html": "htmlhint --config .htmlhintrc **/*.vue",
@@ -14,7 +19,9 @@
     "prettier": "prettier --check **/*.{vue,css,scss,less,js,json}",
     "prettier:fix": "prettier --write **/*.{vue,css,scss,less,js,json}",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "commit": "git-cz",
+    "release": "standard-version"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -28,6 +35,8 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.0.1",
+    "@commitlint/config-conventional": "^12.0.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-pwa": "~4.5.0",
@@ -37,6 +46,8 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/test-utils": "^1.1.2",
     "babel-eslint": "^10.1.0",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-html": "^6.1.1",
@@ -51,24 +62,25 @@
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
     "prettier": "^2.0.5",
+    "standard-version": "^9.1.1",
     "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "yorkie": "^2.0.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
-    "commit-msg": "node verify-commit-msg.js"
+    "commit-msg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
     "**/*.{js,vue,css,scss,less}": [
-      "npm run fix:js",
-      "npm run fix:style",
-      "git add ."
+      "npm run lint:js",
+      "npm run lint:style",
+      "npm run lint:html"
     ],
     "**/*.{js,vue,css,scss,less,json}": [
-      "npm run prettier:fix",
-      "git add ."
+      "npm run prettier"
     ]
   }
 }
