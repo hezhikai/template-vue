@@ -16,8 +16,8 @@
     "lint:html": "htmlhint --config .htmlhintrc **/*.vue",
     "lint:style": "stylelint --config .stylelintrc.json **/*.{vue,css,scss,less}",
     "fix:style": "stylelint --config .stylelintrc.json **/*.{vue,css,scss,less} --fix",
-    "prettier": "prettier --check **/*.{vue,css,scss,less,js,json}",
-    "prettier:fix": "prettier --write **/*.{vue,css,scss,less,js,json}",
+    "prettier": "prettier --check \"**/*.{vue,css,scss,less,js,json}\"",
+    "prettier:fix": "prettier --write \"**/*.{vue,css,scss,less,js,json}\"",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "commit": "git-cz",
@@ -74,9 +74,13 @@
     "commit-msg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
-    "**/*.{js,vue,css,scss,less}": [
-      "npm run lint:js",
-      "npm run lint:style",
+    "**/*.{js,vue}": [
+      "npm run lint:js"
+    ],
+    "**/*.{vue,css,scss,less}": [
+      "npm run lint:style"
+    ],
+    "**/*.{vue}": [
       "npm run lint:html"
     ],
     "**/*.{js,vue,css,scss,less,json}": [
