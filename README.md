@@ -115,7 +115,13 @@ git push --follow-tags origin branch
 - 通过 `standard-version` 工具执行
 - 不带参数时按照 `standard-version` 自身规则更新版本号（不建议）
 - 强烈建议根据实际情况带 `-- --release-as` 参数执行该脚本
-  - major：主版本号（递增第一位）
-  - minor：次版本（递增第二位)
-  - patch：修订号（递增第三位）
+  - major：通过执行 `npm run release:major` 脚本
+    - 主版本号（递增第一位）
+    - 表示做了不兼容的 API 修改
+  - minor：通过执行 `npm run release:minor` 脚本
+    - 次版本（递增第二位)
+    - 表示做了向下兼容的功能性新增
+  - patch：执行 `npm run release:patch` 脚本
+    - 修订号（递增第三位）
+    - 表示做了向下兼容的问题修正
   - 自定义版本号：如 0.1.0（不建议）

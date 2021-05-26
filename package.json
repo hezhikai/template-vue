@@ -21,7 +21,10 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "release:major": "npm run release -- --release-as major",
+    "release:minor": "npm run release -- --release-as minor",
+    "release:patch": "npm run release -- --release-as patch"
   },
   "dependencies": {
     "axios": "^0.21.1",
