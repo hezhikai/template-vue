@@ -9,7 +9,7 @@
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "lint": "hzk lint",
     "fix": "npm run fix:js && npm run fix:style",
     "lint:js": "eslint --ext .js,.vue src",
     "fix:js": "eslint --fix --ext .js,.vue src",
@@ -48,6 +48,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.27.0",
     "htmlhint": "^0.14.2",
+    "hzkweb-cli": "^0.1.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
