@@ -1,4 +1,4 @@
-import { baseService } from '../base-service';
+import baseService from '../base-service';
 const request = baseService('user');
 
 const userService = {

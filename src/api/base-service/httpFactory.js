@@ -6,7 +6,7 @@ import {
   checkType,
   blobToString,
   coerceBoolean
-} from 'hf-utils';
+} from '@/utils/common';
 
 /**
  * 执行传入的配置项中的on前缀的方法
