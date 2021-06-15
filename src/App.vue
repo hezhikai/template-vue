@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-  import layout from './components/layout.vue';
+  import layout from './components/layout';
 
   export default {
     name: 'App',
